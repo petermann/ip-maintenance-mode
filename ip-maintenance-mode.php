@@ -83,20 +83,48 @@ function ip_maintenance_mode()
     }
 
     if ($pagenow !== 'wp-login.php' && $_ip_view_site !== true && !current_user_can('manage_options') && !is_admin() && !is_user_logged_in()) {
+
         $_ip_previa_path = $_SERVER['DOCUMENT_ROOT'] . '/previa/';
         if (is_dir($_ip_previa_path)) {
             wp_redirect('/previa/');
-            exit;
         } else {
-            @header('HTTP/1.1 503 Service Temporarily Unavailable');
-            @header('Status: 503 Service Temporarily Unavailable');
-            @header('Retry-After: 300');
-            @header('Content-Type: text/html; charset=utf-8');
-            if (file_exists(plugin_dir_path(__FILE__) . 'views/maintenance.php')) {
+
+            // Define $page
+            $development_page_id = 0;
+
+            // Check if the function "get_page_by_path" is available (introduced in newer WordPress versions)
+            if (function_exists('get_page_by_path')) {
+                // Array containing possible slugs
+                $slugs = array('under-development', 'em-desenvolvimento');
+
+                // Iterate over the slugs
+                foreach ($slugs as $slug) {
+                    // Try to get the page by slug
+                    $development_page = get_page_by_path($slug);
+                    // If the page is found, stop the iteration
+                    if ($development_page && isset($development_page->ID)) {
+                        $development_page_id = $development_page->ID;
+                        break;
+                    }
+                }
+            }
+
+            // Check if the page is found
+            if ($development_page_id > 0) {
+
+                $_GET['page_id'] = $development_page_id;
+
+                add_action('send_headers', 'ip_maintenance_mode_send_header', 99);
+
+                /** Loads the WordPress Environment and Template */
+                require $_SERVER['DOCUMENT_ROOT'] . '/wp-blog-header.php';
+            } elseif (file_exists(plugin_dir_path(__FILE__) . 'views/maintenance.php')) {
+                ip_maintenance_mode_send_header();
+                @header('Content-Type: text/html; charset=utf-8');
                 require_once plugin_dir_path(__FILE__) . 'views/maintenance.php';
             }
-            die();
         }
+        exit();
     }
 }
 
