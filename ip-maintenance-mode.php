@@ -6,7 +6,7 @@
  * Author: Ivan Petermann
  * Author URI: https://ivanpetermann.com
  * Requires at least: 4.0
- * Tested up to: 6.4
+ * Tested up to: 6.5
  *
  * Text Domain: ip-maintenance-mode
  * Domain Path: /languages/
