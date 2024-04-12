@@ -101,3 +101,13 @@ function ip_maintenance_mode()
 }
 
 add_action('wp_loaded', 'ip_maintenance_mode');
+
+function ip_maintenance_mode_send_header()
+{
+    @header('HTTP/1.1 503 Service Temporarily Unavailable');
+    @header('Status: 503 Service Temporarily Unavailable');
+    @header('Retry-After: 300');
+    @header('Cache-Control: no-store, must-revalidate');
+    @header('Pragma: no-cache');
+    @header('Expires: 0');
+}
