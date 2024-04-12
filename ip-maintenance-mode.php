@@ -2,7 +2,7 @@
 /*
  * Plugin Name: IP Maintenance Mode
  * Version: 1.2.10
- * Description: Display a maintenance mode page, except when logged in as an administrator or using the /?view=1 parameter in the URL.
+ * Description: Display a maintenance mode with the default page, or create a custom page with the slug "under-development". This page will be shown unless logged in as an administrator or using the /?view=1 parameter in the URL.
  * Author: Ivan Petermann
  * Author URI: https://ivanpetermann.com
  * Requires at least: 4.0
