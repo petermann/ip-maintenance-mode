@@ -55,6 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER['REQUEST_URI'], '/w
     return; // No action needed for POST requests to wp-json
 }
 
+/**
+ * For Oxygen Builder CSS
+ * Check if the query string contains "xlink=css"
+ */
+if (isset($_GET['xlink']) && $_GET['xlink'] === 'css') {
+    return;
+}
+
 function ip_maintenance_mode()
 {
     // Start the session
