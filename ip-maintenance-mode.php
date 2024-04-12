@@ -45,7 +45,7 @@
  */
 
 // Check if the request is from a local address (e.g., '127.0.0.1') or via wp-cli, and if so, exit early
-if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || defined('WP_CLI') && WP_CLI) {
+if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || defined('WP_CLI')) {
     return; // Local and wp-cli requests are handled differently; no further processing needed
 }
 
