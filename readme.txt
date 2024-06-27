@@ -1,9 +1,9 @@
 === IP Maintenance Mode ===
-Contributors: petermann
+Contributors: ivanpetermann
 Donate link: https://ivanpetermann.com/donation
 Tags: maintenance, mode, petermann
 Requires at least: 4.0
-Tested up to: 6.5
+Tested up to: 6.5.5
 Stable tag: 1.3.11
 Requires PHP: 5.6
 License: GPL-3.0-or-later
