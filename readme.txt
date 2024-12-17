@@ -4,7 +4,7 @@ Donate link: https://ivanpetermann.com/donation
 Tags: maintenance, mode, petermann
 Requires at least: 4.0
 Tested up to: 6.5.5
-Stable tag: 1.3.11
+Stable tag: 1.3.12
 Requires PHP: 5.6
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -22,6 +22,9 @@ Install the plugin by:
 1. Go to `Settings -> IP Maintenance Mode` page and setup you phone number and message.
 
 == Changelog ==
+
+= 1.3.12 =
+* Refactor access control logic in maintenance mode.
 
 = 1.3.11 =
 * Fixed undefined constant WP_CLI.

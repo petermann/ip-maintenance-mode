@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: IP Maintenance Mode
- * Version: 1.3.11
+ * Version: 1.3.12
  * Description: Display a maintenance mode with the default page, or create a custom page with the slug "under-development". This page will be shown unless logged in as an administrator or using the /?view=1 parameter in the URL.
  * Author: Ivan Petermann
  * Author URI: https://ivanpetermann.com
