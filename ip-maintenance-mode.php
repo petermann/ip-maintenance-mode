@@ -82,7 +82,7 @@ function ip_maintenance_mode()
         exit;
     }
 
-    if ($pagenow !== 'wp-login.php' && $_ip_view_site !== true && !current_user_can('manage_options') && !is_admin() && !is_user_logged_in()) {
+    if ($pagenow !== 'wp-login.php' && $_ip_view_site !== true && (!is_user_logged_in() || !current_user_can('manage_options')) && !is_admin()) {
 
         $_ip_previa_path = $_SERVER['DOCUMENT_ROOT'] . '/previa/';
         if (is_dir($_ip_previa_path)) {
